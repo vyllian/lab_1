@@ -5,7 +5,7 @@ import java.util.Scanner;
   */
 public class Main {
 
-    private static Fib_numb[] fib_arr; //масив для об'єктів
+    public static Fib_numb[] fib_arr; //масив для об'єктів
      /**
       *  головний метод
       *  командним рядком моджна передати кількість чисел Фібоначі,
