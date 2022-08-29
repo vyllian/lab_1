@@ -1,6 +1,7 @@
 package com.nvl1;
 import java.util.Scanner;
 
+// задання: визначити які з N чисел Фібоначі є простими
 public class Main {
 
     public static void main(String[] args)
