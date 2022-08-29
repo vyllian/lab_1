@@ -1,53 +1,65 @@
 package com.nvl1;
-/**
- *  клас числа Фібоначі
- */
+
 public class Fib_numb {
-    private int order; // поле порядкового номеру
-    private int value; // поле значення
-    /**
-     *  конструктор
-     */
+    private int order;
+    private int value;
+    private boolean isprime;
+
+    Fib_numb(){}
     Fib_numb(int order, int value){
         this.order = order;
         this.value = value;
+        this.isprime = this.isPrime((int)Math.sqrt(value)) ;
     }
-    /**
-     *  метод отримання поля значення
-     * повертає значення числа об'єкта
+
+    /** Gives value of Fibonacci number
+     *
+     * @return value
      */
     int getValue (){
         return this.value;
     }
-    /**
-     *  метод отримання поля номеру
-     * повертає значення порядкового номера об'єкта
+
+    /** Gives access to isprime variable
+     *
+     * @return isprime value
      */
-    int getOrder (){
-        return this.order;
-    }
-    /**
-     * метод встановлення поля значення
-     * параметр "int value" - значення, яке встановиться
+    boolean getPrime () { return this.isprime; }
+
+    /** Defines whether the number is prime
+     *
+     * @param i square root of the number
+     * @return true if number is prime or false if it's not
      */
-    void setValue (int value){
-        this.value=value;
+    boolean isPrime(int i){
+        while (i>1){
+            if (this.value % i == 0) return false;
+            i--;}
+        return true;
     }
+
     /**
-    метод встановлення поля номеру
-     * параметр "int value" - значення, яке встановиться
+     * Fills an array with Fibonacci numbers
+     * @param order index of the last number in row
+     * @param arr array of Fibonacci numbers we fill
      */
-    void setOrder (int order){
-        this.order=order;
+    void generate_array (int order, Fib_numb[] arr){
+        int k, f1,f2,fnumb;
+        Fib_numb tem;
+        tem = new Fib_numb(1, 1);
+        arr[0] = tem;
+        if (order == 1  ) return;
+        tem = new Fib_numb(2, 1);
+        arr[1] = tem;
+        if (order == 2) return;
+        f1=f2=1; k=2;
+        do{
+            fnumb=f1+f2;
+            tem = new Fib_numb(k,fnumb );
+            arr[k] = tem;
+            f2=f1;
+            f1=fnumb;
+        } while(++k!=order);
     }
-    /**
-     * рекурсивний метод перевірки чи значення є простим числом
-     * параметр "int і" - дільник
-     * повертає 1, якщо число просте, інакше - 0
-     */
-    int isPrime(int i){
-        if(i==1) return 1;
-        if (this.value%i==0) return 0; // якщо немає остачі при ділені - просте
-        return isPrime(i-1);
-    }
+
 }
