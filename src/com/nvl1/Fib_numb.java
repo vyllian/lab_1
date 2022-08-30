@@ -5,7 +5,6 @@ public class Fib_numb {
     private int value;
     private boolean isprime;
 
-    Fib_numb(){}
     Fib_numb(int order, int value){
         this.order = order;
         this.value = value;
@@ -43,7 +42,7 @@ public class Fib_numb {
      * @param order index of the last number in row
      * @param arr array of Fibonacci numbers we fill
      */
-    void generate_array (int order, Fib_numb[] arr){
+    static void generate_array (int order, Fib_numb[] arr){
         int k, f1,f2,fnumb;
         Fib_numb tem;
         tem = new Fib_numb(1, 1);
