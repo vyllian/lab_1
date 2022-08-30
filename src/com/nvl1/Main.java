@@ -21,8 +21,7 @@ public class Main {
         System.out.println("Ряд Фібоначі до " + N + " елементу включно:");
 
         Fib_numb[] fib_arr = new Fib_numb[N];
-        Fib_numb tem = new Fib_numb();
-        tem.generate_array(N,fib_arr);
+        Fib_numb.generate_array(N,fib_arr);
 
         for (int i=0; i<N;i++ )
             System.out.print(fib_arr[i].getValue()+" ");
